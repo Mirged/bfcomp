@@ -3,8 +3,10 @@
 
 void generate_c_code(const char* source_code, FILE* file);
 
-void compile_brainfuck_to_c(const char* source_code, const char* output_file) {
-	const char* c_file = "output.c";
+void compile_brainfuck_to_c(const char* source_code, const char* executable_file, const char* output_file) {
+	
+	
+	
     FILE* file = fopen(output_file, "w");
     if (!file) {
         printf("Error: Failed to open output file.\n");
@@ -25,10 +27,10 @@ void compile_brainfuck_to_c(const char* source_code, const char* output_file) {
 
     // Compile the C code using the system's C compiler (GCC or Clang)
     char compile_command[256];
-    sprintf(compile_command, "cc -o %s %s", output_file, c_file);
+    sprintf(compile_command, "cc -o %s %s", executable_file, output_file);
     int result = system(compile_command);
     if (result == 0) {
-        printf("Executable file '%s' generated.\n", output_file);
+        printf("Executable file '%s' generated.\n", executable_file);
     } else {
         printf("Error: Compilation failed.\n");
     }
@@ -109,8 +111,13 @@ int main(int argc, char* argv[]) {
 
     source_code[file_size] = '\0';
     fclose(file);
+    
+    const char* executable_file = output_file;
+    
+    char c_file[256];
+    sprintf(c_file, "%s.c", output_file);
 
-    compile_brainfuck_to_c(source_code, output_file);
+    compile_brainfuck_to_c(source_code, executable_file, c_file);
 
     free(source_code);
 
