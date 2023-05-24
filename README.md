@@ -30,7 +30,7 @@ cd bfcomp
 3. Compile the Brainfuck compiler:
 
 ```
-gcc bfcomp.c -o bfcomp
+make
 ```
 
 
