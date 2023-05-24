@@ -18,7 +18,7 @@ To use this Brainfuck compiler, you need to have the following installed on your
 1. Clone the repository (if you haven't already):
 
 ```
-git clone https://github.com/mirged/bfcomp.git
+git clone https://github.com/Mirged/bfcomp.git
 ```
 
 2. Navigate to the project directory:
