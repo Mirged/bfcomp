@@ -16,8 +16,10 @@ jobs:
     - name: make
       run: make      
     name: Archive code coverage results
-  runs-on: ubuntu-latest
-  uses: actions/upload-artifact@v3
-  with:
-    name: linux-x86_64
-    path: ./bfcomp
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v3.1.2
+        with:
+          name: linux-x86_64
+          path: ./bfcomp
