@@ -14,12 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make
-      run: make      
-    name: Archive code coverage results
+      run: make
   upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/upload-artifact@v3.1.2
         with:
           name: linux-x86_64
-          path: ./bfcomp
+          path: bfcomp
